@@ -29,8 +29,9 @@ io.on('connect', function(socket) {
   console.log('a new user connected');
   var questionNum = 0; // keep count of question, used for IF condition.
   socket.on('loaded', function() { // we wait until the client has loaded and contacted us that it is ready to go.
+socket.emit('changeBG', 'rgb(3,252,182)');
 
-    socket.emit('answer', "Hey, hello I am \"___*-\" a simple chat bot example."); //We start with the introduction;
+    socket.emit('answer', "Screw you, I am Peebo and I am very angry."); //We start with the introduction;
     setTimeout(timedQuestion, 5000, socket, "What is your name?"); // Wait a moment and respond with a question.
 
   });
@@ -51,42 +52,36 @@ function bot(data, socket, questionNum) {
 
   /// These are the main statments that make up the conversation.
   if (questionNum == 0) {
-    answer = 'Hello ' + input + ' :-)'; // output response
+    answer =  input + '? What a terrible name.'; // output response
     waitTime = 5000;
-    question = 'How old are you?'; // load next question
+    question = 'Why do you smell so bad?'; // load next question
   } else if (questionNum == 1) {
-    answer = 'Really, ' + input + ' years old? So that means you were born in: ' + (2018 - parseInt(input)); // output response
+    answer =  'I think you said \'' +   input +  '\'  but I couldn\'t really hear through the smell. ' ; // output response
     waitTime = 5000;
-    question = 'Where do you live?'; // load next question
+    question = 'Why are you talking to me?'; // load next question
   } else if (questionNum == 2) {
-    answer = 'Cool! I have never been to ' + input + '.';
+    answer = "Cool, I hate you";
     waitTime = 5000;
-    question = 'Whats your favorite color?'; // load next question
+    question = 'Whats your least favorite color?'; // load next question
   } else if (questionNum == 3) {
     answer = 'Ok, ' + input + ' it is.';
     socket.emit('changeBG', input.toLowerCase());
     waitTime = 5000;
-    question = 'Can you still read the font?'; // load next question
+    question = 'Are you dumb?'; // load next question
   } else if (questionNum == 4) {
     if (input.toLowerCase() === 'yes' || input === 1) {
-      answer = 'Perfect!';
+      answer = 'Thought so';
       waitTime = 5000;
-      question = 'Whats your favorite place?';
-    } else if (input.toLowerCase() === 'no' || input === 0) {
-      socket.emit('changeFont', 'white'); /// we really should look up the inverse of what we said befor.
-      answer = ''
-      question = 'How about now?';
-      waitTime = 0;
-      questionNum--; // Here we go back in the question number this can end up in a loop
+      question = 'Ug. Say something I\m bored.';
     } else {
-      question = 'Can you still read the font?'; // load next question
-      answer = 'I did not understand you. Could you please answer "yes" or "no"?'
+      question = 'Are you dumb?'; // load next question
+      answer = 'The only answer to this question is "yes". Try again.'
       questionNum--;
       waitTime = 5000;
     }
     // load next question
   } else {
-    answer = 'I have nothing more to say!'; // output response
+    answer = "I'm done. Leave"; // output response
     waitTime = 0;
     question = '';
   }
