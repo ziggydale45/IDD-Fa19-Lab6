@@ -80,6 +80,8 @@ To submit your lab, fork [this repository](https://github.com/FAR-Lab/IDD-Fa18-L
 **Using a phone or other video device, record someone trying out your ChatBot. Upload that video to this repository and link to it here!**
 
 [rudebot 1](https://www.youtube.com/watch?v=B1xykaWYd9I)
+
+
 [rudebot 2](https://youtu.be/kl-yT2LuuKU)
 
 ---
